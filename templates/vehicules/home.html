@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Accueil - Gestion Véhicules</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -42,11 +43,17 @@
         .btn:hover {
             background: #27446b;
         }
+        .logo {
+            max-width: 220px;
+            display: block;
+            margin: 0 auto 24px auto;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="/static/images/logo.png" alt="Logo Bakayoko Ali" style="max-width: 220px; display: block; margin: 0 auto 24px auto;">
+        <img src="{% static 'images/logo.png' %}" alt="Logo Bakayoko Ali" class="logo">
         <h1>Bienvenue sur la Gestion des Véhicules</h1>
         <a href="/admin/login/" class="btn">Connexion</a>
     </div>

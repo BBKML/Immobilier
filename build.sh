@@ -4,5 +4,8 @@ set -o errexit
 
 pip install -r requirements.txt
 
-python manage.py collectstatic --no-input
+# Collecter les fichiers statiques
+python manage.py collectstatic --no-input --clear
+
+# Appliquer les migrations
 python manage.py migrate 

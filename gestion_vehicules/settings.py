@@ -138,7 +138,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
@@ -150,6 +150,9 @@ if not DEBUG:
     MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     
+    # Configuration alternative pour whitenoise si CompressedManifestStaticFilesStorage échoue
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+    
     # Configuration de sécurité pour Render
     SECURE_SSL_REDIRECT = True
     SECURE_HSTS_SECONDS = 31536000
@@ -160,6 +163,9 @@ if not DEBUG:
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     X_FRAME_OPTIONS = 'DENY'
+else:
+    # Configuration pour le développement
+    STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -172,10 +178,10 @@ JAZZMIN_SETTINGS = {
     "site_title": "Gestion Véhicules",
     "site_header": "🚗 Gestion Véhicules",
     "site_brand": "Gestion Véhicules",
-    "site_logo": "images/logo.png",
+    "site_logo": None,  # Utiliser le logo via CSS si nécessaire
     "site_logo_classes": "img-fluid",
     "site_logo_height": "60px",
-    "login_logo": "images/logo.png",
+    "login_logo": None,  # Utiliser le logo via CSS si nécessaire
     "login_logo_classes": "img-fluid",
     "login_logo_height": "80px",
     "welcome_sign": "Bienvenue dans votre système de gestion de véhicules",
