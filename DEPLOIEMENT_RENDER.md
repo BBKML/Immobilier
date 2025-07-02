@@ -214,6 +214,47 @@ python manage.py createsuperuser
 - [ ] Tests de fonctionnalités effectués
 - [ ] Domaine personnalisé configuré (optionnel)
 
+## 🗄️ Base de données
+
+### SQLite (développement et production simple)
+Aucune configuration supplémentaire nécessaire. Votre base de données `db.sqlite3` sera utilisée telle quelle.
+
+### Utiliser votre base de données existante
+Si vous avez déjà une base de données avec des données, vous pouvez :
+
+1. **Uploadez votre db.sqlite3** dans votre repository
+2. **Ou utilisez le Shell Render** pour importer vos données :
+   ```bash
+   # Dans le Shell Render
+   python manage.py loaddata your_data.json
+   ```
+
+### PostgreSQL (production recommandé)
+Pour une utilisation intensive, ajoutez une base de données PostgreSQL :
+
+1. **Créer une base de données**
+   - "New +" → "PostgreSQL"
+   - Plan: Free (pour commencer)
+   - Nom: `gestion-vehicules-db`
+
+2. **Connecter à l'application**
+   - Dans votre Web Service
+   - "Environment" → "Add Environment Variable"
+   - Ajoutez les variables de base de données fournies par Render
+
+3. **Mettre à jour settings.py**
+   ```python
+   import os
+   import dj_database_url
+   
+   DATABASES = {
+       'default': dj_database_url.config(
+           default=os.environ.get('DATABASE_URL'),
+           conn_max_age=600
+       )
+   }
+   ```
+
 ---
 
 **Temps de déploiement estimé** : 5-10 minutes  
