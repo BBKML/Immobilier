@@ -23,6 +23,36 @@ def truncate_text(text, max_length=15):
         return str(text)[:max_length-3] + '...'
     return str(text) if text else '-'
 
+# Fonction utilitaire pour vérifier si les tables existent
+def tables_exist():
+    """Vérifier si les tables de base de données existent"""
+    try:
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='vehicules_vehicule';")
+            return cursor.fetchone() is not None
+    except:
+        return False
+
+# Fonction utilitaire pour accéder aux modèles de manière sécurisée
+def safe_count(model_class, **filters):
+    """Compter les objets d'un modèle de manière sécurisée"""
+    if not tables_exist():
+        return 0
+    try:
+        return model_class.objects.filter(**filters).count()
+    except:
+        return 0
+
+def safe_queryset(model_class, **filters):
+    """Obtenir un queryset de manière sécurisée"""
+    if not tables_exist():
+        return model_class.objects.none()
+    try:
+        return model_class.objects.filter(**filters)
+    except:
+        return model_class.objects.none()
+
 # Actions en lot personnalisées
 @admin.action(description="Marquer comme actif")
 def marquer_actif(modeladmin, request, queryset):
@@ -127,8 +157,7 @@ class ClientAdmin(admin.ModelAdmin):
         }),
     )
     def vehicules_count(self, obj):
-        from .models import Vehicule, Moto
-        return Vehicule.objects.filter(client=obj).count() + Moto.objects.filter(client=obj).count()
+        return safe_count(Vehicule, client=obj) + safe_count(Moto, client=obj)
     vehicules_count.short_description = 'Véhicules'
     def derniere_activite(self, obj):
         return "-"
@@ -155,8 +184,7 @@ class ProprietaireAdmin(admin.ModelAdmin):
         }),
     )
     def vehicules_count(self, obj):
-        from .models import Vehicule, Moto
-        return Vehicule.objects.filter(proprietaire=obj).count() + Moto.objects.filter(proprietaire=obj).count()
+        return safe_count(Vehicule, proprietaire=obj) + safe_count(Moto, proprietaire=obj)
     vehicules_count.short_description = 'Véhicules'
     def valeur_totale(self, obj):
         return "-"
@@ -183,16 +211,13 @@ class MarqueAdmin(admin.ModelAdmin):
         }),
     )
     def vehicules_count(self, obj):
-        from .models import Vehicule
-        return Vehicule.objects.filter(marque=obj).count()
+        return safe_count(Vehicule, marque=obj)
     vehicules_count.short_description = 'Véhicules'
     def motos_count(self, obj):
-        from .models import Moto
-        return Moto.objects.filter(marque=obj).count()
+        return safe_count(Moto, marque=obj)
     motos_count.short_description = 'Motos'
     def popularite(self, obj):
-        from .models import Vehicule, Moto
-        total = Vehicule.objects.filter(marque=obj).count() + Moto.objects.filter(marque=obj).count()
+        total = safe_count(Vehicule, marque=obj) + safe_count(Moto, marque=obj)
         if total > 10:
             return format_html('<span class="badge badge-success">Populaire</span>')
         elif total > 5:
@@ -220,8 +245,7 @@ class TypeVehiculeAdmin(admin.ModelAdmin):
         }),
     )
     def vehicules_count(self, obj):
-        from .models import Vehicule
-        return Vehicule.objects.filter(type_vehicule=obj).count()
+        return safe_count(Vehicule, type_vehicule=obj)
     vehicules_count.short_description = 'Véhicules'
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
@@ -242,8 +266,7 @@ class TypeMotoAdmin(admin.ModelAdmin):
         }),
     )
     def motos_count(self, obj):
-        from .models import Moto
-        return Moto.objects.filter(type_moto=obj).count()
+        return safe_count(Moto, type_moto=obj)
     motos_count.short_description = 'Motos'
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
@@ -1108,35 +1131,84 @@ admin.site.site_url = None
 # Ajouter les statistiques au contexte de l'admin
 def get_admin_stats():
     """Récupérer les statistiques détaillées pour l'admin"""
-    today = timezone.now().date()
-    this_month = today.replace(day=1)
-    this_year = today.replace(month=1, day=1)
-    
-    return {
-        'vehicules_count': Vehicule.objects.count(),
-        'motos_count': Moto.objects.count(),
-        'clients_count': Client.objects.count(),
-        'proprietaires_count': Proprietaire.objects.count(),
-        'marques_count': Marque.objects.count(),
-        'types_vehicule_count': TypeVehicule.objects.count(),
-        'types_moto_count': TypeMoto.objects.count(),
+    try:
+        from django.db import connection
         
-        # Statistiques temporelles
-        'vehicules_ce_mois': Vehicule.objects.filter(date__gte=this_month).count(),
-        'motos_ce_mois': Moto.objects.filter(date__gte=this_month).count(),
-        'nouveaux_clients_ce_mois': Client.objects.count(),  # Simplifié car pas de date_creation
+        # Vérifier si les tables existent
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='vehicules_vehicule';")
+            table_exists = cursor.fetchone()
+            
+        if not table_exists:
+            # Si les tables n'existent pas, retourner des statistiques vides
+            return {
+                'vehicules_count': 0,
+                'motos_count': 0,
+                'clients_count': 0,
+                'proprietaires_count': 0,
+                'marques_count': 0,
+                'types_vehicule_count': 0,
+                'types_moto_count': 0,
+                'vehicules_ce_mois': 0,
+                'motos_ce_mois': 0,
+                'nouveaux_clients_ce_mois': 0,
+                'top_marques': [],
+                'activite_recente': {
+                    'vehicules_recent': 0,
+                    'motos_recent': 0,
+                }
+            }
         
-        # Top marques
-        'top_marques': Marque.objects.annotate(
-            total_vehicules=Count('vehicule') + Count('moto')
-        ).order_by('-total_vehicules')[:5],
+        # Si les tables existent, calculer les statistiques normalement
+        today = timezone.now().date()
+        this_month = today.replace(day=1)
+        this_year = today.replace(month=1, day=1)
         
-        # Activité récente
-        'activite_recente': {
-            'vehicules_recent': Vehicule.objects.filter(date__gte=today - timedelta(days=7)).count(),
-            'motos_recent': Moto.objects.filter(date__gte=today - timedelta(days=7)).count(),
+        return {
+            'vehicules_count': Vehicule.objects.count(),
+            'motos_count': Moto.objects.count(),
+            'clients_count': Client.objects.count(),
+            'proprietaires_count': Proprietaire.objects.count(),
+            'marques_count': Marque.objects.count(),
+            'types_vehicule_count': TypeVehicule.objects.count(),
+            'types_moto_count': TypeMoto.objects.count(),
+            
+            # Statistiques temporelles
+            'vehicules_ce_mois': Vehicule.objects.filter(date__gte=this_month).count(),
+            'motos_ce_mois': Moto.objects.filter(date__gte=this_month).count(),
+            'nouveaux_clients_ce_mois': Client.objects.count(),  # Simplifié car pas de date_creation
+            
+            # Top marques
+            'top_marques': Marque.objects.annotate(
+                total_vehicules=Count('vehicule') + Count('moto')
+            ).order_by('-total_vehicules')[:5],
+            
+            # Activité récente
+            'activite_recente': {
+                'vehicules_recent': Vehicule.objects.filter(date__gte=today - timedelta(days=7)).count(),
+                'motos_recent': Moto.objects.filter(date__gte=today - timedelta(days=7)).count(),
+            }
         }
-    }
+    except Exception as e:
+        # En cas d'erreur, retourner des statistiques vides
+        print(f"Error in get_admin_stats: {e}")
+        return {
+            'vehicules_count': 0,
+            'motos_count': 0,
+            'clients_count': 0,
+            'proprietaires_count': 0,
+            'marques_count': 0,
+            'types_vehicule_count': 0,
+            'types_moto_count': 0,
+            'vehicules_ce_mois': 0,
+            'motos_ce_mois': 0,
+            'nouveaux_clients_ce_mois': 0,
+            'top_marques': [],
+            'activite_recente': {
+                'vehicules_recent': 0,
+                'motos_recent': 0,
+            }
+        }
 
 # Surcharger le contexte de l'admin
 from django.contrib.admin.sites import AdminSite
