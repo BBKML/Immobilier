@@ -3,7 +3,7 @@ services:
     name: gestion-vehicules
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: chmod +x build.sh && ./build.sh
     startCommand: gunicorn gestion_vehicules.wsgi:application
     envVars:
       - key: PYTHON_VERSION

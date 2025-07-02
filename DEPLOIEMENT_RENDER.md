@@ -173,6 +173,31 @@ BACKUP_SCHEDULE=0 2 * * *  # Tous les jours à 2h du matin
    - Vérifiez que `build.sh` s'exécute correctement
    - Assurez-vous que whitenoise est configuré
 
+4. **Erreur "no such table"**
+   - **Solution immédiate** : Via le dashboard Render
+     1. Allez dans votre service web
+     2. Cliquez sur "Shell"
+     3. Exécutez : `python manage.py migrate`
+     4. Puis : `python manage.py createsuperuser`
+   
+   - **Solution permanente** : Redéployer avec le script corrigé
+     1. Poussez les corrections sur GitHub
+     2. Render redéploiera automatiquement
+     3. Le script `build.sh` appliquera les migrations
+
+### Vérification des migrations
+```bash
+# Dans le shell Render
+python manage.py showmigrations
+python manage.py migrate --plan
+```
+
+### Création d'un superutilisateur
+```bash
+# Dans le shell Render
+python manage.py createsuperuser
+```
+
 ### Ressources
 - [Documentation Render](https://render.com/docs)
 - [Support Render](https://render.com/support)

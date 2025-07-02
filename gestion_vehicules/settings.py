@@ -100,8 +100,21 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'OPTIONS': {
+            'timeout': 20,  # Timeout pour les connexions
+        }
     }
 }
+
+# Configuration pour forcer la création de la base de données
+if os.environ.get('DJANGO_DEBUG', 'True').lower() == 'false':
+    # En production, s'assurer que la base de données existe
+    import sqlite3
+    db_path = BASE_DIR / 'db.sqlite3'
+    if not db_path.exists():
+        print(f"Creating database at {db_path}")
+        conn = sqlite3.connect(db_path)
+        conn.close()
 
 
 # Password validation
