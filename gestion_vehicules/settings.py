@@ -148,9 +148,8 @@ STATICFILES_DIRS = [
 if not DEBUG:
     # Ajouter whitenoise pour servir les fichiers statiques
     MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     
-    # Configuration alternative pour whitenoise si CompressedManifestStaticFilesStorage échoue
+    # Configuration simple et fiable pour whitenoise
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
     
     # Configuration de sécurité pour Render

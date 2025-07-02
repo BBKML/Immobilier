@@ -49,13 +49,54 @@
             margin: 0 auto 24px auto;
             height: auto;
         }
+        .logo-fallback {
+            width: 220px;
+            height: 120px;
+            background: linear-gradient(135deg, #366092, #5a6fd8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 auto 24px auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="{% static 'images/logo.png' %}" alt="Logo Bakayoko Ali" class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="Logo Bakayoko Ali" class="logo" 
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="logo-fallback" style="display: none;">
+            🚗 Gestion Véhicules
+        </div>
         <h1>Bienvenue sur la Gestion des Véhicules</h1>
         <a href="/admin/login/" class="btn">Connexion</a>
     </div>
+    
+    <script>
+        // Vérification du chargement du logo
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.logo');
+            const fallback = document.querySelector('.logo-fallback');
+            
+            // Si le logo n'a pas de src ou est vide, afficher le fallback
+            if (!logo.src || logo.src === window.location.href) {
+                logo.style.display = 'none';
+                fallback.style.display = 'flex';
+            }
+            
+            // Vérifier si l'image s'est bien chargée
+            logo.onload = function() {
+                fallback.style.display = 'none';
+            };
+            
+            logo.onerror = function() {
+                this.style.display = 'none';
+                fallback.style.display = 'flex';
+            };
+        });
+    </script>
 </body>
 </html> 
