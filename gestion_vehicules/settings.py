@@ -98,13 +98,23 @@ WSGI_APPLICATION = 'gestion_vehicules.wsgi.application'
 
 # Configuration de base de données pour production
 if not DEBUG:
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600
-        )
-    }
+    # Essayer d'utiliser PostgreSQL, sinon utiliser SQLite
+    try:
+        import dj_database_url
+        DATABASES = {
+            'default': dj_database_url.config(
+                default=os.environ.get('DATABASE_URL'),
+                conn_max_age=600
+            )
+        }
+    except (ImportError, Exception):
+        # Fallback vers SQLite si PostgreSQL n'est pas configuré
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
 else:
     # Configuration SQLite pour le développement
     DATABASES = {

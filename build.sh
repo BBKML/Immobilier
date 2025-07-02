@@ -19,4 +19,8 @@ python manage.py showmigrations
 echo "Running database migrations..."
 python manage.py migrate --no-input
 
-echo "=== Build completed successfully! ===" 
+echo "=== Build completed successfully! ==="
+
+echo "=== Post-deployment setup ==="
+echo "To create a superuser, run: python manage.py createsuperuser"
+echo "To check migrations: python manage.py showmigrations" 
