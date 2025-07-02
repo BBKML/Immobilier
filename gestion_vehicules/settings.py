@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-z-77k3i^p&dd^&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,immobilier-khoa.onrender.com').split(',')
+ALLOWED_HOSTS = ['immobilier-khoa.onrender.com', 'localhost', '127.0.0.1']
 
 # Configuration de sécurité pour la production
 if not DEBUG:
@@ -73,6 +73,7 @@ if os.environ.get('DJANGO_DEBUG', 'True').lower() == 'false':
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,15 +125,8 @@ STATICFILES_DIRS = [
 
 # Configuration pour Render
 if not DEBUG:
-    # Ajouter whitenoise pour servir les fichiers statiques
-    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
-    
-    # Configuration simple et fiable pour whitenoise
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-    
-    # S'assurer que STATIC_URL est défini
-    if not STATIC_URL:
-        STATIC_URL = '/static/'
+    # Configuration pour la production avec WhiteNoise
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     
     # Configuration de sécurité pour Render
     SECURE_SSL_REDIRECT = True

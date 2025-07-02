@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: gestion-vehicules
+    name: immobilier-khoa
     env: python
     plan: free
     buildCommand: chmod +x ./build.sh && chmod +x ./start.sh && ./build.sh
@@ -10,10 +10,8 @@ services:
         value: 3.9.16
       - key: DJANGO_DEBUG
         value: False
-      - key: DJANGO_ALLOWED_HOSTS
-        value: immobilier-khoa.onrender.com
-      - key: DJANGO_SECRET_KEY
-        generateValue: true
+      - key: DJANGO_SETTINGS_MODULE
+        value: gestion_vehicules.settings
     healthCheckPath: /admin/
     autoDeploy: true
     # Ajouter un volume pour persister la base de données SQLite
