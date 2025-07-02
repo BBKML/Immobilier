@@ -19,6 +19,8 @@ python manage.py showmigrations
 echo "Checking if database exists and has tables..."
 python manage.py shell << END
 from django.db import connection
+import os
+
 try:
     with connection.cursor() as cursor:
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='vehicules_vehicule';")
@@ -27,7 +29,6 @@ try:
             print("✅ Table vehicules_vehicule exists")
         else:
             print("❌ Table vehicules_vehicule does not exist - forcing migration")
-            import os
             if os.path.exists('db.sqlite3'):
                 os.remove('db.sqlite3')
                 print("🗑️  Removed existing database")
