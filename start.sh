@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "=== EMERGENCY STARTUP SCRIPT ==="
+echo "=== ULTRA AGGRESSIVE STARTUP SCRIPT ==="
 
 # Vérifier si on est en production
 if [ "$DJANGO_DEBUG" = "False" ]; then
@@ -9,48 +9,52 @@ if [ "$DJANGO_DEBUG" = "False" ]; then
     echo "Current directory: $(pwd)"
     echo "Python version: $(python --version)"
     
-    echo "Checking database..."
-    python manage.py check --database default
-    
-    echo "Removing existing database if it exists..."
+    echo "STEP 1: Force remove any existing database..."
     if [ -f "db.sqlite3" ]; then
-        rm db.sqlite3
+        rm -f db.sqlite3
         echo "✅ Database removed"
     else
         echo "ℹ️  No existing database found"
     fi
     
-    echo "Creating fresh database..."
-    python manage.py migrate --run-syncdb --no-input
+    echo "STEP 2: Create fresh database with syncdb..."
+    python manage.py migrate --run-syncdb --no-input --verbosity=2
     
-    echo "Applying all migrations..."
-    python manage.py migrate --no-input
+    echo "STEP 3: Apply all migrations..."
+    python manage.py migrate --no-input --verbosity=2
     
-    echo "Verifying migrations..."
-    python manage.py showmigrations
-    
-    echo "Testing database tables..."
+    echo "STEP 4: Verify database creation..."
     python manage.py shell << END
 from django.db import connection
 try:
     with connection.cursor() as cursor:
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = cursor.fetchall()
+        print("Tables in database:")
+        for table in tables:
+            print(f"  - {table[0]}")
+        
+        # Check for critical tables
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='auth_user';")
+        auth_user_exists = cursor.fetchone()
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='vehicules_vehicule';")
-        result = cursor.fetchone()
-        if result:
-            print("✅ Table vehicules_vehicule exists")
+        vehicule_exists = cursor.fetchone()
+        
+        if auth_user_exists:
+            print("✅ auth_user table exists")
         else:
-            print("❌ Table vehicules_vehicule missing - forcing recreation...")
-            import os
-            if os.path.exists('db.sqlite3'):
-                os.remove('db.sqlite3')
-            os.system('python manage.py migrate --run-syncdb')
-            os.system('python manage.py migrate')
-            print("✅ Database recreated and migrations applied")
+            print("❌ auth_user table missing")
+            
+        if vehicule_exists:
+            print("✅ vehicules_vehicule table exists")
+        else:
+            print("❌ vehicules_vehicule table missing")
+            
 except Exception as e:
-    print(f"❌ Database check failed: {e}")
+    print(f"❌ Database verification failed: {e}")
 END
     
-    echo "Creating superuser if not exists..."
+    echo "STEP 5: Create superuser..."
     python manage.py shell << END
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -61,19 +65,23 @@ else:
     print("ℹ️  Superuser 'admin' already exists")
 END
     
-    echo "Final verification..."
+    echo "STEP 6: Final test..."
     python manage.py shell << END
+from django.contrib.auth import get_user_model
 from vehicules.models import Vehicule, Moto, Client
 try:
+    User = get_user_model()
+    user_count = User.objects.count()
     vehicule_count = Vehicule.objects.count()
     moto_count = Moto.objects.count()
     client_count = Client.objects.count()
+    print(f"✅ User count: {user_count}")
     print(f"✅ Vehicule count: {vehicule_count}")
     print(f"✅ Moto count: {moto_count}")
     print(f"✅ Client count: {client_count}")
     print("✅ All models accessible!")
 except Exception as e:
-    print(f"❌ Model test failed: {e}")
+    print(f"❌ Final test failed: {e}")
 END
 fi
 
