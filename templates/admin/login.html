@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Gestion Véhicules</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/admin-dashboard.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 40px 32px 32px 32px;
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        .login-container img {
+            max-width: 180px;
+            margin-bottom: 18px;
+        }
+        .login-container h1 {
+            color: #366092;
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #cfd8dc;
+            font-size: 1rem;
+        }
+        .login-form button {
+            background: #366092;
+            color: #fff;
+            padding: 12px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .login-form button:hover {
+            background: #27446b;
+        }
+        .forgot-link {
+            display: block;
+            margin-top: 10px;
+            color: #366092;
+            text-decoration: none;
+            font-size: 0.98rem;
+        }
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+        .errornote {
+            color: #ba2121;
+            background: #ffefef;
+            border: 1px solid #ba2121;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            font-size: 0.98rem;
+        }
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 24px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="/static/images/logo.png" alt="Logo Gestion Véhicules">
+        <h1>Connexion à l'espace d'administration</h1>
+        {% if form.errors %}
+            <div class="errornote">Nom d'utilisateur ou mot de passe incorrect.</div>
+        {% endif %}
+        <form method="post" class="login-form" action="">
+            {% csrf_token %}
+            <input type="text" name="username" autofocus required placeholder="Nom d'utilisateur" value="{{ form.username.value|default:'' }}">
+            <input type="password" name="password" required placeholder="Mot de passe">
+            <button type="submit">Connexion</button>
+        </form>
+        <a class="forgot-link" href="/admin/password_reset/">Mot de passe oublié&nbsp;?</a>
+    </div>
+</body>
+</html> 

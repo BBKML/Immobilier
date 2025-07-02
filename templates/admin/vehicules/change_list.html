@@ -1,0 +1,145 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block object-tools-items %}
+    {{ block.super }}
+    
+    <!-- Boutons d'export -->
+    <!-- Le bouton Export CSV a été supprimé -->
+    <li>
+        <a href="?export=excel" class="btn btn-info btn-sm" style="background-color: #17a2b8; border-color: #17a2b8; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
+            <i class="fas fa-file-excel mr-1"></i>Export Excel
+        </a>
+    </li>
+    <li>
+        <a href="?export=pdf" class="btn btn-danger btn-sm" style="background-color: #dc3545; border-color: #dc3545; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
+            <i class="fas fa-file-pdf mr-1"></i>Export PDF
+        </a>
+    </li>
+    
+    <!-- Bouton d'export de toutes les données -->
+    <li>
+        <a href="?export=all_excel" class="btn btn-warning btn-sm" style="background-color: #ffc107; border-color: #ffc107; color: #212529; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
+            <i class="fas fa-file-excel mr-1"></i>Export Complet Excel
+        </a>
+    </li>
+    <li>
+        <a href="?export=all_pdf" class="btn btn-dark btn-sm" style="background-color: #343a40; border-color: #343a40; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
+            <i class="fas fa-file-pdf mr-1"></i>Export Complet PDF
+        </a>
+    </li>
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        .object-tools {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .object-tools li {
+            margin: 0;
+        }
+        
+        .object-tools a.btn {
+            display: inline-flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .object-tools a.btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            text-decoration: none;
+        }
+        
+        .object-tools a.btn-success:hover {
+            background-color: #218838 !important;
+            border-color: #1e7e34 !important;
+        }
+        
+        .object-tools a.btn-info:hover {
+            background-color: #138496 !important;
+            border-color: #117a8b !important;
+        }
+        
+        .object-tools a.btn-danger:hover {
+            background-color: #c82333 !important;
+            border-color: #bd2130 !important;
+        }
+        
+        .object-tools a.btn-warning:hover {
+            background-color: #e0a800 !important;
+            border-color: #d39e00 !important;
+        }
+        
+        .object-tools a.btn-dark:hover {
+            background-color: #23272b !important;
+            border-color: #1d2124 !important;
+        }
+        
+        /* Animation pour les boutons */
+        .object-tools a.btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .object-tools a.btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .object-tools a.btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .object-tools {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .object-tools li {
+                margin-bottom: 5px;
+            }
+            
+            .object-tools a.btn {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+    </style>
+    
+    <script>
+        // Ajouter des messages de confirmation pour les exports
+        document.addEventListener('DOMContentLoaded', function() {
+            const exportButtons = document.querySelectorAll('.object-tools a[href*="export"]');
+            
+            exportButtons.forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    const exportType = this.href.includes('csv') ? 'CSV' : 
+                                     this.href.includes('excel') ? 'Excel' : 
+                                     this.href.includes('pdf') ? 'PDF' : 'Complet';
+                    
+                    const confirmed = confirm(`Voulez-vous exporter les données au format ${exportType} ?`);
+                    if (!confirmed) {
+                        e.preventDefault();
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %} 

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: gestion-vehicules
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn gestion_vehicules.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: DJANGO_DEBUG
+        value: False
+      - key: DJANGO_ALLOWED_HOSTS
+        value: .onrender.com
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+    healthCheckPath: /admin/
+    autoDeploy: true 
