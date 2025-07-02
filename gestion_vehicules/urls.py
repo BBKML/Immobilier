@@ -24,6 +24,6 @@ urlpatterns = [
     path('', include('vehicules.urls')),
 ]
 
-# Ajouter les URLs pour les fichiers statiques en développement
-if settings.DEBUG:
+# Ajouter les URLs pour les fichiers statiques en développement uniquement
+if settings.DEBUG and settings.STATIC_URL:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

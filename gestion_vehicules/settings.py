@@ -129,6 +129,10 @@ if not DEBUG:
     # Configuration simple et fiable pour whitenoise
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
     
+    # S'assurer que STATIC_URL est défini
+    if not STATIC_URL:
+        STATIC_URL = '/static/'
+    
     # Configuration de sécurité pour Render
     SECURE_SSL_REDIRECT = True
     SECURE_HSTS_SECONDS = 31536000
