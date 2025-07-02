@@ -158,10 +158,10 @@ JAZZMIN_SETTINGS = {
     "site_title": "Gestion Véhicules",
     "site_header": "🚗 Gestion Véhicules",
     "site_brand": "Gestion Véhicules",
-    "site_logo": None,  # Utiliser le logo via CSS si nécessaire
+    "site_logo": "images/logo.png",  # Logo dans la navbar
     "site_logo_classes": "img-fluid",
     "site_logo_height": "60px",
-    "login_logo": None,  # Utiliser le logo via CSS si nécessaire
+    "login_logo": "images/logo.png",  # Logo sur la page de connexion
     "login_logo_classes": "img-fluid",
     "login_logo_height": "80px",
     "welcome_sign": "Bienvenue dans votre système de gestion de véhicules",
