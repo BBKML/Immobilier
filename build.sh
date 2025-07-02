@@ -16,4 +16,7 @@ ls -la staticfiles/images/ || echo "Warning: images directory not found in stati
 echo "Checking database status..."
 python manage.py showmigrations
 
+echo "Running database migrations..."
+python manage.py migrate --no-input
+
 echo "=== Build completed successfully! ===" 

@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: chmod +x build.sh && ./build.sh
-    startCommand: gunicorn gestion_vehicules.wsgi:application
+    startCommand: gunicorn gestion_vehicules.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.16
@@ -14,5 +14,13 @@ services:
         value: immobilier-vrlf.onrender.com
       - key: DJANGO_SECRET_KEY
         generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gestion-vehicules-db
+          property: connectionString
     healthCheckPath: /admin/
-    autoDeploy: true 
+    autoDeploy: true
+
+databases:
+  - name: gestion-vehicules-db
+    plan: free 
