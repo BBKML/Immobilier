@@ -15,11 +15,14 @@ services:
       - key: DJANGO_SECRET_KEY
         generateValue: true
       - key: DATABASE_URL
-        value: sqlite:///db.sqlite3
+        fromDatabase:
+          name: vehicules-db
+          property: connectionString
     healthCheckPath: /admin/
     autoDeploy: true
-    # Ajouter un volume pour persister la base de données
-    disk:
-      name: database
-      mountPath: /opt/render/project/src
-      sizeGB: 1
+
+databases:
+  - name: vehicules-db
+    databaseName: vehicules
+    user: vehicules_user
+    plan: free 
