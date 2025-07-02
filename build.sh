@@ -10,17 +10,15 @@ pip install -r requirements.txt
 echo "Collecting static files..."
 python manage.py collectstatic --no-input --clear
 
-echo "Verifying static files..."
-ls -la staticfiles/images/ || echo "Warning: images directory not found in staticfiles"
-
-echo "Checking database status..."
-python manage.py showmigrations
-
-echo "Running database migrations..."
+echo "Applying migrations..."
 python manage.py migrate --no-input
 
-echo "=== Build completed successfully! ==="
+echo "Creating default superuser (if not exists)..."
+python manage.py shell << END
+from django.contrib.auth import get_user_model
+User = get_user_model()
+if not User.objects.filter(username="admin").exists():
+    User.objects.create_superuser("admin", "admin@example.com", "admin123")
+END
 
-echo "=== Post-deployment setup ==="
-echo "To create a superuser, run: python manage.py createsuperuser"
-echo "To check migrations: python manage.py showmigrations" 
+echo "=== Build completed successfully! ==="
