@@ -3,8 +3,8 @@ services:
     name: gestion-vehicules
     env: python
     plan: free
-    buildCommand: chmod +x ./build.sh && ./build.sh
-    startCommand: gunicorn gestion_vehicules.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    buildCommand: chmod +x ./build.sh && chmod +x ./start.sh && ./build.sh
+    startCommand: ./start.sh
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.16

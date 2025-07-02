@@ -60,6 +60,17 @@ INSTALLED_APPS = [
     'vehicules',
 ]
 
+# Configuration pour forcer les migrations au démarrage
+if os.environ.get('DJANGO_DEBUG', 'True').lower() == 'false':
+    # En production, forcer les migrations au démarrage
+    import subprocess
+    import sys
+    try:
+        subprocess.run([sys.executable, 'manage.py', 'migrate', '--no-input'], check=True)
+        print("✅ Migrations applied successfully at startup")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Error applying migrations: {e}")
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
