@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -60,16 +61,7 @@ INSTALLED_APPS = [
     'vehicules',
 ]
 
-# Configuration pour forcer les migrations au démarrage
-if os.environ.get('DJANGO_DEBUG', 'True').lower() == 'false':
-    # En production, forcer les migrations au démarrage
-    import subprocess
-    import sys
-    try:
-        subprocess.run([sys.executable, 'manage.py', 'migrate', '--no-input'], check=True)
-        print("✅ Migrations applied successfully at startup")
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Error applying migrations: {e}")
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -108,12 +100,12 @@ WSGI_APPLICATION = 'gestion_vehicules.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Configuration de base de données - SQLite pour développement ET production
+# Configuration de base de données
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
+        conn_max_age=600
+    )
 }
 
 # Configuration des fichiers statiques

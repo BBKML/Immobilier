@@ -5,14 +5,13 @@
     {{ block.super }}
     
     <!-- Boutons d'export -->
-    <!-- Le bouton Export CSV a été supprimé -->
     <li>
-        <a href="?export=excel" class="btn btn-info btn-sm" style="background-color: #17a2b8; border-color: #17a2b8; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
+        <a href="#" onclick="exportSelected('excel'); return false;" class="btn btn-info btn-sm" style="background-color: #17a2b8; border-color: #17a2b8; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
             <i class="fas fa-file-excel mr-1"></i>Export Excel
         </a>
     </li>
     <li>
-        <a href="?export=pdf" class="btn btn-danger btn-sm" style="background-color: #dc3545; border-color: #dc3545; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
+        <a href="#" onclick="exportSelected('pdf'); return false;" class="btn btn-danger btn-sm" style="background-color: #dc3545; border-color: #dc3545; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; margin-left: 5px;">
             <i class="fas fa-file-pdf mr-1"></i>Export PDF
         </a>
     </li>
@@ -124,17 +123,58 @@
     </style>
     
     <script>
-        // Ajouter des messages de confirmation pour les exports
-        document.addEventListener('DOMContentLoaded', function() {
-            const exportButtons = document.querySelectorAll('.object-tools a[href*="export"]');
+        // Fonction pour exporter les éléments sélectionnés
+        function exportSelected(exportType) {
+            // Essayer différents sélecteurs pour les checkboxes de sélection
+            let selectedCheckboxes = document.querySelectorAll('input[name="_selected_action"]:checked');
+            if (selectedCheckboxes.length === 0) {
+                selectedCheckboxes = document.querySelectorAll('input[name="action"]:checked');
+            }
+            if (selectedCheckboxes.length === 0) {
+                selectedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            }
             
-            exportButtons.forEach(function(button) {
+            const selectedIds = Array.from(selectedCheckboxes).map(cb => cb.value);
+            
+            console.log('Checkboxes trouvées:', selectedCheckboxes.length); // Debug
+            console.log('Éléments sélectionnés:', selectedIds); // Debug
+            
+            if (selectedIds.length === 0) {
+                alert('Veuillez sélectionner au moins un élément à exporter.');
+                return;
+            }
+            
+            const confirmed = confirm(`Voulez-vous exporter ${selectedIds.length} élément(s) sélectionné(s) au format ${exportType.toUpperCase()} ?`);
+            if (!confirmed) {
+                return;
+            }
+            
+            // Construire l'URL avec les éléments sélectionnés
+            const currentUrl = new URL(window.location);
+            currentUrl.searchParams.set('export', exportType);
+            
+            // Ajouter chaque ID sélectionné
+            selectedIds.forEach(id => {
+                currentUrl.searchParams.append('_selected_action', id);
+            });
+            
+            console.log('URL d\'export:', currentUrl.toString()); // Debug
+            
+            // Rediriger vers l'URL d'export
+            window.location.href = currentUrl.toString();
+        }
+        
+        // Ajouter des messages de confirmation pour les exports complets
+        document.addEventListener('DOMContentLoaded', function() {
+            const exportCompleteButtons = document.querySelectorAll('.object-tools a[href*="all_"]');
+            
+            exportCompleteButtons.forEach(function(button) {
                 button.addEventListener('click', function(e) {
                     const exportType = this.href.includes('csv') ? 'CSV' : 
                                      this.href.includes('excel') ? 'Excel' : 
                                      this.href.includes('pdf') ? 'PDF' : 'Complet';
                     
-                    const confirmed = confirm(`Voulez-vous exporter les données au format ${exportType} ?`);
+                    const confirmed = confirm(`Voulez-vous exporter TOUTES les données au format ${exportType} ?`);
                     if (!confirmed) {
                         e.preventDefault();
                     }
