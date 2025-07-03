@@ -10,8 +10,11 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write("🚀 Import automatique des données locales...")
         
-        # Essayer différents noms de fichiers de sauvegarde (nettoyés en priorité)
+        # Essayer différents noms de fichiers de sauvegarde (finaux en priorité)
         backup_files = [
+            'final_cleaned_local_data_backup_fixed.json',
+            'final_cleaned_fixed_data_backup.json',
+            'final_cleaned_fixed_vehicules_data.json',
             'cleaned_local_data_backup_fixed.json',
             'cleaned_fixed_data_backup.json',
             'cleaned_fixed_vehicules_data.json',
