@@ -22,15 +22,37 @@ class Command(BaseCommand):
                 self.stdout.write(f"🔍 Fichier trouvé: {backup_file}")
                 
                 try:
-                    # Vérifier le contenu du fichier
-                    with open(backup_file, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
+                    # Essayer différents encodages
+                    encodings_to_try = ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252', 'iso-8859-1']
+                    data = None
+                    used_encoding = None
                     
-                    self.stdout.write(f"✅ Fichier valide avec {len(data)} objets")
+                    for encoding in encodings_to_try:
+                        try:
+                            with open(backup_file, 'r', encoding=encoding) as f:
+                                data = json.load(f)
+                                used_encoding = encoding
+                                break
+                        except (UnicodeDecodeError, json.JSONDecodeError):
+                            continue
+                    
+                    if data is None:
+                        raise Exception("Impossible de décoder le fichier avec aucun encodage")
+                    
+                    self.stdout.write(f"✅ Fichier valide avec {len(data)} objets (encodage: {used_encoding})")
+                    
+                    # Créer un fichier temporaire avec encodage UTF-8
+                    temp_file = f"temp_{backup_file}"
+                    with open(temp_file, 'w', encoding='utf-8') as f:
+                        json.dump(data, f, ensure_ascii=False, indent=2)
                     
                     # Importer les données
                     self.stdout.write("🔄 Import des données en cours...")
-                    call_command('loaddata', backup_file, verbosity=1)
+                    call_command('loaddata', temp_file, verbosity=1)
+                    
+                    # Nettoyer le fichier temporaire
+                    if os.path.exists(temp_file):
+                        os.remove(temp_file)
                     
                     self.stdout.write(
                         self.style.SUCCESS(

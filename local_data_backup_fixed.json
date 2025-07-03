@@ -618,7 +618,7 @@
       "user": 1,
       "content_type": 7,
       "object_id": "9",
-      "object_repr": "CH╔RIF",
+      "object_repr": "CHÉRIF",
       "action_flag": 1,
       "change_message": "[{\"added\": {}}]"
     }
@@ -946,7 +946,7 @@
     "model": "vehicules.client",
     "pk": 9,
     "fields": {
-      "nom": "CH╔RIF",
+      "nom": "CHÉRIF",
       "contact": null,
       "adresse": null
     }

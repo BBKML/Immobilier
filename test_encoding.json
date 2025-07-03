@@ -1,0 +1,22 @@
+[
+  {
+    "model": "vehicules.client",
+    "pk": 1,
+    "fields": {
+      "nom": "TEST CLIENT",
+      "contact": "123456789",
+      "adresse": "Adresse de test"
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 1,
+    "fields": {
+      "immatriculation": "TEST123",
+      "marque": 1,
+      "modele": "Test Modèle",
+      "annee": 2020,
+      "prix": 15000.0
+    }
+  }
+]
