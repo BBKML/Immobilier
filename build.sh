@@ -12,4 +12,7 @@ python manage.py collectstatic --noinput
 # Appliquer les migrations
 python manage.py migrate --noinput
 
+# Créer un superuser par défaut (seulement si aucun superuser n'existe)
+python manage.py create_superuser
+
 echo "=== Build completed ===" 
