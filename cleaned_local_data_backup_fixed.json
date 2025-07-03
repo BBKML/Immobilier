@@ -1,0 +1,2587 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2025-06-30T22:29:03.466Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "BAKAYOKO",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2025-07-01T07:24:06.519Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "1",
+      "object_repr": "Type Test",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2025-07-01T09:11:57.338Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "13",
+      "object_repr": "LUX (voiture)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2025-07-01T09:12:28.524Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "12",
+      "object_repr": "ACCES (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2025-07-01T09:12:36.530Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "9",
+      "object_repr": "APSONIC (moto)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2025-07-01T09:12:45.595Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "DAF (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2025-07-01T09:12:54.719Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "4",
+      "object_repr": "FRUEHAUF (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2025-07-01T09:13:02.471Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "11",
+      "object_repr": "HAOJUE (moto)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2025-07-01T09:13:18.169Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "7",
+      "object_repr": "KIA (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2025-07-01T09:13:29.190Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "10",
+      "object_repr": "KTM (moto)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2025-07-01T09:13:46.709Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "LAMBERT (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2025-07-01T09:13:54.559Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "6",
+      "object_repr": "LECINENA (moto)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2025-07-01T09:14:03.535Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "6",
+      "object_repr": "LECINENA (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2025-07-01T09:14:13.047Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "3",
+      "object_repr": "LECITRAILER (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2025-07-01T09:14:21.600Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "5",
+      "object_repr": "MERCEDES (voiture)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2025-07-01T09:14:41.016Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "8",
+      "object_repr": "SANYA (moto)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Categorie\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2025-07-01T11:19:14.460Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "2",
+      "object_repr": "Moto object (2)",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2025-07-02T16:28:10.069Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "PART",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2025-07-02T16:28:15.179Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "1",
+      "object_repr": "Moto object (1)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2025-07-02T16:29:09.230Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "2",
+      "object_repr": "Moto object (2)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2025-07-02T16:30:03.749Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "5",
+      "object_repr": "COIC",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2025-07-02T16:30:11.039Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "Moto object (3)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2025-07-02T16:31:39.226Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "4",
+      "object_repr": "Moto object (4)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2025-07-02T16:33:14.140Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "5",
+      "object_repr": "Moto object (5)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+      "action_time": "2025-07-02T16:48:18.339Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "8",
+      "object_repr": "Moto object (8)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+      "action_time": "2025-07-02T16:48:33.087Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "9",
+      "object_repr": "Moto object (9)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+      "action_time": "2025-07-02T16:50:29.540Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "14",
+      "object_repr": "ACCES (moto)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2025-07-02T16:51:51.647Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "7",
+      "object_repr": "Moto object (7)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Marque\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2025-07-02T16:52:14.509Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "6",
+      "object_repr": "Moto object (6)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2025-07-02T16:52:28.436Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "7",
+      "object_repr": "Moto object (7)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2025-07-02T16:57:25.790Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "2",
+      "object_repr": "TE47MS",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2025-07-02T16:59:10.283Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "3",
+      "object_repr": "F2AD1H",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+      "action_time": "2025-07-02T17:00:36.819Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "10",
+      "object_repr": "Vehicule object (10)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+      "action_time": "2025-07-02T17:01:21.891Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "ALI",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+      "action_time": "2025-07-02T17:01:26.009Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "Vehicule object (2)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+      "action_time": "2025-07-02T17:02:41.126Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "4",
+      "object_repr": "LVF53E",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+      "action_time": "2025-07-02T17:02:48.863Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "Vehicule object (2)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+      "action_time": "2025-07-02T17:03:14.859Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Vehicule object (1)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+      "action_time": "2025-07-02T17:03:57.371Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "5",
+      "object_repr": "TEH430",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+      "action_time": "2025-07-02T17:04:26.640Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "7",
+      "object_repr": "HAMED",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+      "action_time": "2025-07-02T17:04:30.734Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "Vehicule object (3)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+      "action_time": "2025-07-02T17:05:04.894Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "6",
+      "object_repr": "P3AA2X",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+      "action_time": "2025-07-02T17:05:16.896Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "Vehicule object (4)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+      "action_time": "2025-07-02T17:05:53.958Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "7",
+      "object_repr": "SR3",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+      "action_time": "2025-07-02T17:06:15.031Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "8",
+      "object_repr": "KARIM",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+      "action_time": "2025-07-02T17:06:18.067Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "5",
+      "object_repr": "Vehicule object (5)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+      "action_time": "2025-07-02T17:06:56.204Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "8",
+      "object_repr": "TE47MS",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+      "action_time": "2025-07-02T17:07:20.945Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "9",
+      "object_repr": "CHÉRIF",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+      "action_time": "2025-07-02T17:07:23.933Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "6",
+      "object_repr": "Vehicule object (6)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+      "action_time": "2025-07-02T17:07:59.977Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "9",
+      "object_repr": "TX34C5",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+      "action_time": "2025-07-02T17:08:09.485Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "7",
+      "object_repr": "Vehicule object (7)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+      "action_time": "2025-07-02T17:09:15.360Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "10",
+      "object_repr": "934032",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+      "action_time": "2025-07-02T17:09:28.161Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "10",
+      "object_repr": "KOULOU",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+      "action_time": "2025-07-02T17:10:00.545Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "8",
+      "object_repr": "Vehicule object (8)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+      "action_time": "2025-07-02T17:10:25.904Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "11",
+      "object_repr": "TE47MS",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+      "action_time": "2025-07-02T17:10:47.123Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "11",
+      "object_repr": "SOUL",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+      "action_time": "2025-07-02T17:11:02.769Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "9",
+      "object_repr": "Vehicule object (9)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Type vehicule\", \"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+      "action_time": "2025-07-02T17:14:33.916Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "12",
+      "object_repr": "TE47MS",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+      "action_time": "2025-07-02T17:25:44.001Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "12",
+      "object_repr": "SOU OUAN",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+      "action_time": "2025-07-02T17:25:49.230Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "10",
+      "object_repr": "Vehicule object (10)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Client\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+      "action_time": "2025-07-03T06:14:26.084Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Client Test",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+      "action_time": "2025-07-03T06:14:26.084Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "Client Test Moto",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+      "action_time": "2025-07-03T06:36:54.335Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "Type Moto Test",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+      "action_time": "2025-07-03T06:42:28.893Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "LAMBERT (voiture)",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+      "action_time": "2025-07-03T06:42:51.663Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "X1",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ffYf8wUDShp7KpFUzzvzuc$yOa7q38jfAFbMx8FnwZT4qycq101L4+XqmEa8fxUtkU=",
+      "last_login": "2025-07-03T06:36:25.840Z",
+      "is_superuser": true,
+      "username": "BAKAYOKO",
+      "first_name": "",
+      "last_name": "",
+      "email": "bak@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-06-30T21:31:35.618Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$nFjc7AySm5StK9LhY0u8NA$1mSkJ+iL52FUYeHbQwWxrSNzcyqaMyqpVY8/hpfVt8c=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-06-30T21:34:31.101Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "1upd0hzl18uor9l0u0kp2qmg5v61wedk",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2pCBodi6dN8zNMMwSNVAUtqV8e7apAvd_vfef6mJtjVPW5NlmqO6KKNOv1sgfkjZQbxTuVXNtazLHPSu6IM2PdYoz-vh_h1kavlbexvNYHtIHeHZJyAzuAAGfEQQFiI0iaxFy2iAoiPw0KNjFofJcqfeH8i2N2k:1uXDYX:MRD_nS5yVwzIRrJmPXhMXpvaFS20zDBXT_6AQQ7qHIw",
+      "expire_date": "2025-07-17T06:36:25.860Z"
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 1,
+    "fields": {
+      "nom": "BAKAYOKO",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 4,
+    "fields": {
+      "nom": "PART",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 5,
+    "fields": {
+      "nom": "COIC",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 6,
+    "fields": {
+      "nom": "ALI",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 7,
+    "fields": {
+      "nom": "HAMED",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 8,
+    "fields": {
+      "nom": "KARIM",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 9,
+    "fields": {
+      "nom": "CHÉRIF",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 10,
+    "fields": {
+      "nom": "KOULOU",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 11,
+    "fields": {
+      "nom": "SOUL",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.client",
+    "pk": 12,
+    "fields": {
+      "nom": "SOU OUAN",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 1,
+    "fields": {
+      "nom": "ALIBABA COTE D'IVOIRE",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 2,
+    "fields": {
+      "nom": "TRAORE MOHAMED",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 3,
+    "fields": {
+      "nom": "TRAORE KARIM",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 4,
+    "fields": {
+      "nom": "CHERIF BEMA",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 5,
+    "fields": {
+      "nom": "SOCIETE KONATE ET FRERES",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 6,
+    "fields": {
+      "nom": "SEKONGO NABATIN KASSOUM",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 7,
+    "fields": {
+      "nom": "DIALLO IDI",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 8,
+    "fields": {
+      "nom": "SANOGO MAMADOU",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 9,
+    "fields": {
+      "nom": "FONDIO BAMOUSSA",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 10,
+    "fields": {
+      "nom": "SILUE SINANGON AMINATA",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 11,
+    "fields": {
+      "nom": "COULIBALY SARAN",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 12,
+    "fields": {
+      "nom": "KONE EPSE DIOMANDE SITA",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 13,
+    "fields": {
+      "nom": "COULIBALY SALIMATA",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 14,
+    "fields": {
+      "nom": "ASSERY GNAGNE VIVIEN",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 15,
+    "fields": {
+      "nom": "FOFANA MOUSSA SALIA",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 16,
+    "fields": {
+      "nom": "SANOGO DRISSA",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.proprietaire",
+    "pk": 17,
+    "fields": {
+      "nom": "DIAGONE BI GOHI JANVIER",
+      "contact": null,
+      "adresse": null
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 1,
+    "fields": {
+      "nom": "DAF",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 2,
+    "fields": {
+      "nom": "LAMBERT",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 3,
+    "fields": {
+      "nom": "LECITRAILER",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 4,
+    "fields": {
+      "nom": "FRUEHAUF",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 5,
+    "fields": {
+      "nom": "MERCEDES",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 6,
+    "fields": {
+      "nom": "LECINENA",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 7,
+    "fields": {
+      "nom": "KIA",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 8,
+    "fields": {
+      "nom": "SANYA",
+      "categorie": 2
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 9,
+    "fields": {
+      "nom": "APSONIC",
+      "categorie": 2
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 10,
+    "fields": {
+      "nom": "KTM",
+      "categorie": 2
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 11,
+    "fields": {
+      "nom": "HAOJUE",
+      "categorie": 2
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 12,
+    "fields": {
+      "nom": "ACCES",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.marque",
+    "pk": 13,
+    "fields": {
+      "nom": "LUX",
+      "categorie": 1
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 1,
+    "fields": {
+      "nom": "Type Test"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 2,
+    "fields": {
+      "nom": "TE47MS"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 3,
+    "fields": {
+      "nom": "F2AD1H"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 4,
+    "fields": {
+      "nom": "LVF53E"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 5,
+    "fields": {
+      "nom": "TEH430"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 6,
+    "fields": {
+      "nom": "P3AA2X"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 7,
+    "fields": {
+      "nom": "SR3"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 9,
+    "fields": {
+      "nom": "TX34C5"
+    }
+  },
+  {
+    "model": "vehicules.typevehicule",
+    "pk": 10,
+    "fields": {
+      "nom": "934032"
+    }
+  },
+  {
+    "model": "vehicules.typemoto",
+    "pk": 2,
+    "fields": {
+      "nom": "SY125-16"
+    }
+  },
+  {
+    "model": "vehicules.typemoto",
+    "pk": 3,
+    "fields": {
+      "nom": "AP125-9"
+    }
+  },
+  {
+    "model": "vehicules.typemoto",
+    "pk": 4,
+    "fields": {
+      "nom": "X1"
+    }
+  },
+  {
+    "model": "vehicules.typemoto",
+    "pk": 5,
+    "fields": {
+      "nom": "110-2"
+    }
+  },
+  {
+    "model": "vehicules.typemoto",
+    "pk": 6,
+    "fields": {
+      "nom": "AC101"
+    }
+  },
+  {
+    "model": "vehicules.typemoto",
+    "pk": 7,
+    "fields": {
+      "nom": "SY125-8"
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 1,
+    "fields": {
+      "id": 1,
+      "chassis": "XLRT47M50E932416",
+      "immatriculation": "AA-278-NI",
+      "date": "2025-01-07",
+      "chrono": "KGOZ5ZC460",
+      "type_tech": "TE47MS",
+      "statut": "actif",
+      "marque": 1,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 1,
+      "history_date": "2025-07-01T07:22:12.286Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 2,
+    "fields": {
+      "id": 2,
+      "chassis": "VM3LV53EX1R09787",
+      "immatriculation": "AA-498-NK",
+      "date": "2025-01-07",
+      "chrono": "KGOZ4ZC598",
+      "type_tech": "LVF53E",
+      "statut": "actif",
+      "marque": 2,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 1,
+      "history_date": "2025-07-01T07:22:12.319Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 3,
+    "fields": {
+      "id": 3,
+      "chassis": "XLRTGH430G162879",
+      "immatriculation": "AA-558-NN",
+      "date": "2025-01-10",
+      "chrono": "KGOZ5ZC885",
+      "type_tech": "TEH430",
+      "statut": "actif",
+      "marque": 1,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 2,
+      "history_date": "2025-07-01T07:22:12.344Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 4,
+    "fields": {
+      "id": 4,
+      "chassis": "VVS1R35EASFLA1479",
+      "immatriculation": "AA-119-NP",
+      "date": "2025-01-10",
+      "chrono": "KGOZ5ZC887",
+      "type_tech": "P3AA2X",
+      "statut": "actif",
+      "marque": 3,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 2,
+      "history_date": "2025-07-01T07:22:12.364Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 5,
+    "fields": {
+      "id": 5,
+      "chassis": "VVS1R35EASFLF7631",
+      "immatriculation": "AA-623-NR",
+      "date": "2025-01-15",
+      "chrono": "KGOZ5ZC134",
+      "type_tech": "SR3",
+      "statut": "actif",
+      "marque": 3,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 3,
+      "history_date": "2025-07-01T07:22:12.395Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 6,
+    "fields": {
+      "id": 6,
+      "chassis": "XLRT47M50E980154",
+      "immatriculation": "AA-134-NR",
+      "date": "2025-01-17",
+      "chrono": "KGOZ5ZC105",
+      "type_tech": "TE47MS",
+      "statut": "actif",
+      "marque": 1,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 4,
+      "history_date": "2025-07-01T07:22:12.422Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 7,
+    "fields": {
+      "id": 7,
+      "chassis": "VKFTK34SC7R0628",
+      "immatriculation": "AA-461-NR",
+      "date": "2025-01-17",
+      "chrono": "KGOZ5ZC107",
+      "type_tech": "TX34C5",
+      "statut": "actif",
+      "marque": 4,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 4,
+      "history_date": "2025-07-01T07:22:12.444Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 8,
+    "fields": {
+      "id": 8,
+      "chassis": "WDB9340311B17509",
+      "immatriculation": "AA-164-NR",
+      "date": "2025-01-20",
+      "chrono": "KGOZ5ZC109",
+      "type_tech": "934032",
+      "statut": "actif",
+      "marque": 5,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 5,
+      "history_date": "2025-07-01T07:22:12.483Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 9,
+    "fields": {
+      "id": 9,
+      "chassis": "XL9SP3A6DM1068683",
+      "immatriculation": "AA-709-NI",
+      "date": "2025-01-23",
+      "chrono": "KGOZ5ZC501",
+      "type_tech": "SP3M98",
+      "statut": "actif",
+      "marque": 6,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 6,
+      "history_date": "2025-07-01T07:22:12.521Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 10,
+    "fields": {
+      "id": 10,
+      "chassis": "KNAJP4334H700014",
+      "immatriculation": "AA-179-PA",
+      "date": "2025-01-23",
+      "chrono": "KGOZ5ZC502",
+      "type_tech": "F2AD1D",
+      "statut": "actif",
+      "marque": 7,
+      "type_vehicule": 1,
+      "client": 2,
+      "proprietaire": 7,
+      "history_date": "2025-07-01T07:22:12.554Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 11,
+    "fields": {
+      "id": 10,
+      "chassis": "KNAJP4334H700014",
+      "immatriculation": "AA-179-PA",
+      "date": "2025-01-23",
+      "chrono": "KGOZ5ZC502",
+      "type_tech": "F2AD1D",
+      "statut": "actif",
+      "marque": 7,
+      "type_vehicule": 3,
+      "client": 2,
+      "proprietaire": 7,
+      "history_date": "2025-07-02T17:00:36.811Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 12,
+    "fields": {
+      "id": 2,
+      "chassis": "VM3LV53EX1R09787",
+      "immatriculation": "AA-498-NK",
+      "date": "2025-01-07",
+      "chrono": "KGOZ4ZC598",
+      "type_tech": "LVF53E",
+      "statut": "actif",
+      "marque": 2,
+      "type_vehicule": 2,
+      "client": 6,
+      "proprietaire": 1,
+      "history_date": "2025-07-02T17:01:26.009Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 13,
+    "fields": {
+      "id": 2,
+      "chassis": "VM3LV53EX1R09787",
+      "immatriculation": "AA-498-NK",
+      "date": "2025-01-07",
+      "chrono": "KGOZ4ZC598",
+      "type_tech": "LVF53E",
+      "statut": "actif",
+      "marque": 2,
+      "type_vehicule": 4,
+      "client": 6,
+      "proprietaire": 1,
+      "history_date": "2025-07-02T17:02:48.863Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 14,
+    "fields": {
+      "id": 1,
+      "chassis": "XLRT47M50E932416",
+      "immatriculation": "AA-278-NI",
+      "date": "2025-01-07",
+      "chrono": "KGOZ5ZC460",
+      "type_tech": "TE47MS",
+      "statut": "actif",
+      "marque": 1,
+      "type_vehicule": 2,
+      "client": 6,
+      "proprietaire": 1,
+      "history_date": "2025-07-02T17:03:14.859Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 15,
+    "fields": {
+      "id": 3,
+      "chassis": "XLRTGH430G162879",
+      "immatriculation": "AA-558-NN",
+      "date": "2025-01-10",
+      "chrono": "KGOZ5ZC885",
+      "type_tech": "TEH430",
+      "statut": "actif",
+      "marque": 1,
+      "type_vehicule": 5,
+      "client": 7,
+      "proprietaire": 2,
+      "history_date": "2025-07-02T17:04:30.734Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 16,
+    "fields": {
+      "id": 4,
+      "chassis": "VVS1R35EASFLA1479",
+      "immatriculation": "AA-119-NP",
+      "date": "2025-01-10",
+      "chrono": "KGOZ5ZC887",
+      "type_tech": "P3AA2X",
+      "statut": "actif",
+      "marque": 3,
+      "type_vehicule": 6,
+      "client": 7,
+      "proprietaire": 2,
+      "history_date": "2025-07-02T17:05:16.896Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 17,
+    "fields": {
+      "id": 5,
+      "chassis": "VVS1R35EASFLF7631",
+      "immatriculation": "AA-623-NR",
+      "date": "2025-01-15",
+      "chrono": "KGOZ5ZC134",
+      "type_tech": "SR3",
+      "statut": "actif",
+      "marque": 3,
+      "type_vehicule": 7,
+      "client": 8,
+      "proprietaire": 3,
+      "history_date": "2025-07-02T17:06:18.067Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 18,
+    "fields": {
+      "id": 6,
+      "chassis": "XLRT47M50E980154",
+      "immatriculation": "AA-134-NR",
+      "date": "2025-01-17",
+      "chrono": "KGOZ5ZC105",
+      "type_tech": "TE47MS",
+      "statut": "actif",
+      "marque": 1,
+      "type_vehicule": 8,
+      "client": 9,
+      "proprietaire": 4,
+      "history_date": "2025-07-02T17:07:23.925Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 19,
+    "fields": {
+      "id": 7,
+      "chassis": "VKFTK34SC7R0628",
+      "immatriculation": "AA-461-NR",
+      "date": "2025-01-17",
+      "chrono": "KGOZ5ZC107",
+      "type_tech": "TX34C5",
+      "statut": "actif",
+      "marque": 4,
+      "type_vehicule": 9,
+      "client": 9,
+      "proprietaire": 4,
+      "history_date": "2025-07-02T17:08:09.485Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 20,
+    "fields": {
+      "id": 8,
+      "chassis": "WDB9340311B17509",
+      "immatriculation": "AA-164-NR",
+      "date": "2025-01-20",
+      "chrono": "KGOZ5ZC109",
+      "type_tech": "934032",
+      "statut": "actif",
+      "marque": 5,
+      "type_vehicule": 10,
+      "client": 10,
+      "proprietaire": 5,
+      "history_date": "2025-07-02T17:10:00.537Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 21,
+    "fields": {
+      "id": 9,
+      "chassis": "XL9SP3A6DM1068683",
+      "immatriculation": "AA-709-NI",
+      "date": "2025-01-23",
+      "chrono": "KGOZ5ZC501",
+      "type_tech": "SP3M98",
+      "statut": "actif",
+      "marque": 6,
+      "type_vehicule": 11,
+      "client": 11,
+      "proprietaire": 6,
+      "history_date": "2025-07-02T17:11:02.761Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalvehicule",
+    "pk": 22,
+    "fields": {
+      "id": 10,
+      "chassis": "KNAJP4334H700014",
+      "immatriculation": "AA-179-PA",
+      "date": "2025-01-23",
+      "chrono": "KGOZ5ZC502",
+      "type_tech": "F2AD1D",
+      "statut": "actif",
+      "marque": 7,
+      "type_vehicule": 3,
+      "client": 12,
+      "proprietaire": 7,
+      "history_date": "2025-07-02T17:25:49.230Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 1,
+    "fields": {
+      "marque": 1,
+      "type_vehicule": 2,
+      "chassis": "XLRT47M50E932416",
+      "immatriculation": "AA-278-NI",
+      "date": "2025-01-07",
+      "chrono": "KGOZ5ZC460",
+      "type_tech": "TE47MS",
+      "statut": "actif",
+      "client": 6,
+      "proprietaire": 1
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 2,
+    "fields": {
+      "marque": 2,
+      "type_vehicule": 4,
+      "chassis": "VM3LV53EX1R09787",
+      "immatriculation": "AA-498-NK",
+      "date": "2025-01-07",
+      "chrono": "KGOZ4ZC598",
+      "type_tech": "LVF53E",
+      "statut": "actif",
+      "client": 6,
+      "proprietaire": 1
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 3,
+    "fields": {
+      "marque": 1,
+      "type_vehicule": 5,
+      "chassis": "XLRTGH430G162879",
+      "immatriculation": "AA-558-NN",
+      "date": "2025-01-10",
+      "chrono": "KGOZ5ZC885",
+      "type_tech": "TEH430",
+      "statut": "actif",
+      "client": 7,
+      "proprietaire": 2
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 4,
+    "fields": {
+      "marque": 3,
+      "type_vehicule": 6,
+      "chassis": "VVS1R35EASFLA1479",
+      "immatriculation": "AA-119-NP",
+      "date": "2025-01-10",
+      "chrono": "KGOZ5ZC887",
+      "type_tech": "P3AA2X",
+      "statut": "actif",
+      "client": 7,
+      "proprietaire": 2
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 5,
+    "fields": {
+      "marque": 3,
+      "type_vehicule": 7,
+      "chassis": "VVS1R35EASFLF7631",
+      "immatriculation": "AA-623-NR",
+      "date": "2025-01-15",
+      "chrono": "KGOZ5ZC134",
+      "type_tech": "SR3",
+      "statut": "actif",
+      "client": 8,
+      "proprietaire": 3
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 6,
+    "fields": {
+      "marque": 1,
+      "type_vehicule": 8,
+      "chassis": "XLRT47M50E980154",
+      "immatriculation": "AA-134-NR",
+      "date": "2025-01-17",
+      "chrono": "KGOZ5ZC105",
+      "type_tech": "TE47MS",
+      "statut": "actif",
+      "client": 9,
+      "proprietaire": 4
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 7,
+    "fields": {
+      "marque": 4,
+      "type_vehicule": 9,
+      "chassis": "VKFTK34SC7R0628",
+      "immatriculation": "AA-461-NR",
+      "date": "2025-01-17",
+      "chrono": "KGOZ5ZC107",
+      "type_tech": "TX34C5",
+      "statut": "actif",
+      "client": 9,
+      "proprietaire": 4
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 8,
+    "fields": {
+      "marque": 5,
+      "type_vehicule": 10,
+      "chassis": "WDB9340311B17509",
+      "immatriculation": "AA-164-NR",
+      "date": "2025-01-20",
+      "chrono": "KGOZ5ZC109",
+      "type_tech": "934032",
+      "statut": "actif",
+      "client": 10,
+      "proprietaire": 5
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 9,
+    "fields": {
+      "marque": 6,
+      "type_vehicule": 11,
+      "chassis": "XL9SP3A6DM1068683",
+      "immatriculation": "AA-709-NI",
+      "date": "2025-01-23",
+      "chrono": "KGOZ5ZC501",
+      "type_tech": "SP3M98",
+      "statut": "actif",
+      "client": 11,
+      "proprietaire": 6
+    }
+  },
+  {
+    "model": "vehicules.vehicule",
+    "pk": 10,
+    "fields": {
+      "marque": 7,
+      "type_vehicule": 3,
+      "chassis": "KNAJP4334H700014",
+      "immatriculation": "AA-179-PA",
+      "date": "2025-01-23",
+      "chrono": "KGOZ5ZC502",
+      "type_tech": "F2AD1D",
+      "statut": "actif",
+      "client": 12,
+      "proprietaire": 7
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 1,
+    "fields": {
+      "id": 1,
+      "chassis": "LK1PCJLGA31030043",
+      "immatriculation": "9109FG03",
+      "date": "2010-07-06",
+      "no_fiche": "240/233",
+      "couleur": "PART.",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 8,
+      "type_moto": 2,
+      "client": 3,
+      "proprietaire": 8,
+      "history_date": "2025-07-01T07:25:54.354Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 2,
+    "fields": {
+      "id": 2,
+      "chassis": "LAAA...2900943",
+      "immatriculation": "9917FG03",
+      "date": "2010-09-15",
+      "no_fiche": "1625/1617",
+      "couleur": "PART. ok",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 9,
+      "type_moto": 3,
+      "client": 3,
+      "proprietaire": 9,
+      "history_date": "2025-07-01T07:25:54.394Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 3,
+    "fields": {
+      "id": 3,
+      "chassis": "LP5XCHLC6A0181094",
+      "immatriculation": "2799FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2269/2262",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 10,
+      "type_moto": 4,
+      "client": 3,
+      "proprietaire": 10,
+      "history_date": "2025-07-01T07:25:54.433Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 4,
+    "fields": {
+      "id": 4,
+      "chassis": "LP5XCHLC9X0106815",
+      "immatriculation": "2791FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2268/2254",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 10,
+      "type_moto": 4,
+      "client": 3,
+      "proprietaire": 11,
+      "history_date": "2025-07-01T07:25:54.453Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 5,
+    "fields": {
+      "id": 5,
+      "chassis": "LC6XCHX1580804322",
+      "immatriculation": "9101FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2271/2260",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 11,
+      "type_moto": 5,
+      "client": 3,
+      "proprietaire": 12,
+      "history_date": "2025-07-01T07:25:54.497Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 6,
+    "fields": {
+      "id": 6,
+      "chassis": "LPXCHLC6A0157314",
+      "immatriculation": "2798FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2270/2258",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 10,
+      "type_moto": 4,
+      "client": 3,
+      "proprietaire": 13,
+      "history_date": "2025-07-01T07:25:54.523Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 7,
+    "fields": {
+      "id": 7,
+      "chassis": "LHJXCHLA79M100370",
+      "immatriculation": "8243FG03",
+      "date": "2010-10-20",
+      "no_fiche": "3065/3088",
+      "couleur": "PART.OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 12,
+      "type_moto": 6,
+      "client": 3,
+      "proprietaire": 14,
+      "history_date": "2025-07-01T07:25:54.567Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 8,
+    "fields": {
+      "id": 8,
+      "chassis": "LK1PCJLB891116213",
+      "immatriculation": "8548FG03",
+      "date": "2010-11-09",
+      "no_fiche": "3472/3459",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 8,
+      "type_moto": 7,
+      "client": 3,
+      "proprietaire": 15,
+      "history_date": "2025-07-01T07:25:54.594Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 9,
+    "fields": {
+      "id": 9,
+      "chassis": "LK1PCJLG881022952",
+      "immatriculation": "8585FG03",
+      "date": "2010-11-08",
+      "no_fiche": "3434/3421",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 8,
+      "type_moto": 2,
+      "client": 3,
+      "proprietaire": 16,
+      "history_date": "2025-07-01T07:25:54.622Z",
+      "history_change_reason": null,
+      "history_type": "+",
+      "history_user": null
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 10,
+    "fields": {
+      "id": 2,
+      "chassis": "LAAA...2900943",
+      "immatriculation": "9917FG03",
+      "date": "2010-09-15",
+      "no_fiche": "1625/1617",
+      "couleur": "PART. ok",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 9,
+      "type_moto": 3,
+      "client": 3,
+      "proprietaire": 9,
+      "history_date": "2025-07-01T11:19:14.460Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 11,
+    "fields": {
+      "id": 1,
+      "chassis": "LK1PCJLGA31030043",
+      "immatriculation": "9109FG03",
+      "date": "2010-07-06",
+      "no_fiche": "240/233",
+      "couleur": "PART.",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 8,
+      "type_moto": 2,
+      "client": 4,
+      "proprietaire": 8,
+      "history_date": "2025-07-02T16:28:15.171Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 12,
+    "fields": {
+      "id": 2,
+      "chassis": "LAAA...2900943",
+      "immatriculation": "9917FG03",
+      "date": "2010-09-15",
+      "no_fiche": "1625/1617",
+      "couleur": "PART. ok",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 9,
+      "type_moto": 3,
+      "client": 4,
+      "proprietaire": 9,
+      "history_date": "2025-07-02T16:29:09.230Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 13,
+    "fields": {
+      "id": 3,
+      "chassis": "LP5XCHLC6A0181094",
+      "immatriculation": "2799FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2269/2262",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 10,
+      "type_moto": 4,
+      "client": 5,
+      "proprietaire": 10,
+      "history_date": "2025-07-02T16:30:11.031Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 14,
+    "fields": {
+      "id": 4,
+      "chassis": "LP5XCHLC9X0106815",
+      "immatriculation": "2791FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2268/2254",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 10,
+      "type_moto": 4,
+      "client": 5,
+      "proprietaire": 11,
+      "history_date": "2025-07-02T16:31:39.226Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 15,
+    "fields": {
+      "id": 5,
+      "chassis": "LC6XCHX1580804322",
+      "immatriculation": "9101FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2271/2260",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 11,
+      "type_moto": 5,
+      "client": 5,
+      "proprietaire": 12,
+      "history_date": "2025-07-02T16:33:14.132Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 16,
+    "fields": {
+      "id": 8,
+      "chassis": "LK1PCJLB891116213",
+      "immatriculation": "8548FG03",
+      "date": "2010-11-09",
+      "no_fiche": "3472/3459",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 8,
+      "type_moto": 7,
+      "client": 5,
+      "proprietaire": 15,
+      "history_date": "2025-07-02T16:48:18.339Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 17,
+    "fields": {
+      "id": 9,
+      "chassis": "LK1PCJLG881022952",
+      "immatriculation": "8585FG03",
+      "date": "2010-11-08",
+      "no_fiche": "3434/3421",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 8,
+      "type_moto": 2,
+      "client": 5,
+      "proprietaire": 16,
+      "history_date": "2025-07-02T16:48:33.087Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 18,
+    "fields": {
+      "id": 7,
+      "chassis": "LHJXCHLA79M100370",
+      "immatriculation": "8243FG03",
+      "date": "2010-10-20",
+      "no_fiche": "3065/3088",
+      "couleur": "PART.OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 14,
+      "type_moto": 6,
+      "client": 3,
+      "proprietaire": 14,
+      "history_date": "2025-07-02T16:51:51.639Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 19,
+    "fields": {
+      "id": 6,
+      "chassis": "LPXCHLC6A0157314",
+      "immatriculation": "2798FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2270/2258",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 10,
+      "type_moto": 4,
+      "client": 5,
+      "proprietaire": 13,
+      "history_date": "2025-07-02T16:52:14.509Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.historicalmoto",
+    "pk": 20,
+    "fields": {
+      "id": 7,
+      "chassis": "LHJXCHLA79M100370",
+      "immatriculation": "8243FG03",
+      "date": "2010-10-20",
+      "no_fiche": "3065/3088",
+      "couleur": "PART.OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "marque": 14,
+      "type_moto": 6,
+      "client": 5,
+      "proprietaire": 14,
+      "history_date": "2025-07-02T16:52:28.436Z",
+      "history_change_reason": null,
+      "history_type": "~",
+      "history_user": 1
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 1,
+    "fields": {
+      "marque": 8,
+      "type_moto": 2,
+      "chassis": "LK1PCJLGA31030043",
+      "immatriculation": "9109FG03",
+      "date": "2010-07-06",
+      "no_fiche": "240/233",
+      "couleur": "PART.",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 4,
+      "proprietaire": 8
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 2,
+    "fields": {
+      "marque": 9,
+      "type_moto": 3,
+      "chassis": "LAAA...2900943",
+      "immatriculation": "9917FG03",
+      "date": "2010-09-15",
+      "no_fiche": "1625/1617",
+      "couleur": "PART. ok",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 4,
+      "proprietaire": 9
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 3,
+    "fields": {
+      "marque": 10,
+      "type_moto": 4,
+      "chassis": "LP5XCHLC6A0181094",
+      "immatriculation": "2799FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2269/2262",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 5,
+      "proprietaire": 10
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 4,
+    "fields": {
+      "marque": 10,
+      "type_moto": 4,
+      "chassis": "LP5XCHLC9X0106815",
+      "immatriculation": "2791FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2268/2254",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 5,
+      "proprietaire": 11
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 5,
+    "fields": {
+      "marque": 11,
+      "type_moto": 5,
+      "chassis": "LC6XCHX1580804322",
+      "immatriculation": "9101FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2271/2260",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 5,
+      "proprietaire": 12
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 6,
+    "fields": {
+      "marque": 10,
+      "type_moto": 4,
+      "chassis": "LPXCHLC6A0157314",
+      "immatriculation": "2798FG03",
+      "date": "2010-10-05",
+      "no_fiche": "2270/2258",
+      "couleur": "COIC OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 5,
+      "proprietaire": 13
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 7,
+    "fields": {
+      "marque": 14,
+      "type_moto": 6,
+      "chassis": "LHJXCHLA79M100370",
+      "immatriculation": "8243FG03",
+      "date": "2010-10-20",
+      "no_fiche": "3065/3088",
+      "couleur": "PART.OK",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 5,
+      "proprietaire": 14
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 8,
+    "fields": {
+      "marque": 8,
+      "type_moto": 7,
+      "chassis": "LK1PCJLB891116213",
+      "immatriculation": "8548FG03",
+      "date": "2010-11-09",
+      "no_fiche": "3472/3459",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 5,
+      "proprietaire": 15
+    }
+  },
+  {
+    "model": "vehicules.moto",
+    "pk": 9,
+    "fields": {
+      "marque": 8,
+      "type_moto": 2,
+      "chassis": "LK1PCJLG881022952",
+      "immatriculation": "8585FG03",
+      "date": "2010-11-08",
+      "no_fiche": "3434/3421",
+      "couleur": "COIC",
+      "couleurs": null,
+      "cellulaire": null,
+      "statut": "actif",
+      "client": 5,
+      "proprietaire": 16
+    }
+  }
+]
