@@ -15,7 +15,7 @@ python manage.py migrate --noinput
 # Créer un superuser par défaut (seulement si aucun superuser n'existe)
 python manage.py create_superuser
 
-# Importer les données de sauvegarde (avec fallback)
-python manage.py setup_production_data
+# Importer automatiquement les données locales
+python manage.py import_local_data
 
 echo "=== Build completed ===" 
