@@ -38,13 +38,20 @@ class Proprietaire(models.Model):
         if not self.nom or self.nom.strip() == '':
             raise ValidationError({'nom': 'Le nom du propriétaire est obligatoire'})
 
+class CategorieVehicule(models.Model):
+    nom = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        verbose_name = "Catégorie de véhicule"
+        verbose_name_plural = "Catégories de véhicules"
+        ordering = ['nom']
+
+    def __str__(self):
+        return self.nom
+
 class Marque(models.Model):
-    CATEGORIES = [
-        ('voiture', 'Voiture'),
-        ('moto', 'Moto'),
-    ]
     nom = models.CharField(max_length=100)
-    categorie = models.CharField(max_length=20, choices=CATEGORIES)
+    categorie = models.ForeignKey(CategorieVehicule, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Marque"
@@ -97,7 +104,7 @@ class Vehicule(models.Model):
     ]
     
     # Données du véhicule (obligatoires)
-    marque = models.ForeignKey(Marque, on_delete=models.CASCADE, limit_choices_to={'categorie': 'voiture'})
+    marque = models.ForeignKey(Marque, on_delete=models.CASCADE)
     type_vehicule = models.ForeignKey(TypeVehicule, on_delete=models.CASCADE)
     chassis = models.CharField(max_length=100, unique=True)
     immatriculation = models.CharField(
@@ -149,7 +156,7 @@ class Moto(models.Model):
     ]
     
     # Données de la moto (obligatoires)
-    marque = models.ForeignKey(Marque, on_delete=models.CASCADE, limit_choices_to={'categorie': 'moto'})
+    marque = models.ForeignKey(Marque, on_delete=models.CASCADE)
     type_moto = models.ForeignKey(TypeMoto, on_delete=models.CASCADE)
     chassis = models.CharField(max_length=100, unique=True)
     immatriculation = models.CharField(

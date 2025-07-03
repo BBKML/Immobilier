@@ -9,7 +9,7 @@ from django.db.models.functions import TruncMonth, TruncYear
 from django.utils import timezone
 from datetime import datetime, timedelta
 import json
-from .models import Client, Proprietaire, Marque, TypeVehicule, TypeMoto, Vehicule, Moto
+from .models import Client, Proprietaire, Marque, TypeVehicule, TypeMoto, Vehicule, Moto, CategorieVehicule
 from reportlab.lib.pagesizes import A3, A4, landscape
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -2272,6 +2272,194 @@ class MotoAdmin(admin.ModelAdmin):
             content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         )
         response['Content-Disposition'] = f'attachment; filename="motos_complet_export.xlsx"'
+        return response
+
+@admin.register(CategorieVehicule)
+class CategorieVehiculeAdmin(admin.ModelAdmin):
+    list_display = ("nom", "vehicules_count", "actions_rapides")
+    search_fields = ("nom",)
+    list_per_page = 10
+    ordering = ("nom",)
+    actions = [exporter_donnees_csv, exporter_donnees_excel, exporter_donnees_pdf]
+    change_list_template = 'admin/vehicules/change_list.html'
+    
+    def vehicules_count(self, obj):
+        """Compter le nombre total de véhicules et motos pour cette catégorie"""
+        return safe_count(Vehicule, marque__categorie=obj) + safe_count(Moto, marque__categorie=obj)
+    vehicules_count.short_description = 'Nombre de véhicules'
+    
+    def actions_rapides(self, obj):
+        return format_html(
+            '<div style="display: flex; gap: 5px; justify-content: center; align-items: center;">'
+            '<a href="{}" class="btn btn-sm btn-primary" title="Voir" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border-radius: 4px;">'
+            '<i class="fas fa-eye" style="font-size: 12px;"></i></a>'
+            '<a href="{}" class="btn btn-sm btn-warning" title="Modifier" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border-radius: 4px;">'
+            '<i class="fas fa-edit" style="font-size: 12px;"></i></a>'
+            '<a href="{}" class="btn btn-sm btn-danger" title="Supprimer" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border-radius: 4px;" onclick="return confirm(\'Êtes-vous sûr de vouloir supprimer cette catégorie ?\');">'
+            '<i class="fas fa-trash" style="font-size: 12px;"></i></a>'
+            '</div>',
+            reverse('admin:vehicules_categorievehicule_change', args=[obj.pk]),
+            reverse('admin:vehicules_categorievehicule_change', args=[obj.pk]),
+            reverse('admin:vehicules_categorievehicule_delete', args=[obj.pk])
+        )
+    actions_rapides.short_description = 'Actions'
+    
+    def changelist_view(self, request, extra_context=None):
+        # Gérer les exports depuis les boutons
+        export_type = request.GET.get('export')
+        if export_type:
+            # Vérifier s'il y a des éléments sélectionnés
+            selected_ids = request.GET.getlist('_selected_action')
+            if selected_ids:
+                queryset = self.model.objects.filter(id__in=selected_ids)
+            else:
+                queryset = self.get_queryset(request)
+            return self.export_data(request, queryset, export_type)
+        return super().changelist_view(request, extra_context)
+    
+    def export_data(self, request, queryset, export_type):
+        """Gérer l'export des données selon le type demandé"""
+        try:
+            if export_type == 'csv':
+                return self.export_csv(request, queryset)
+            elif export_type == 'excel':
+                return self.export_excel(request, queryset)
+            elif export_type == 'pdf':
+                return self.export_pdf(request, queryset)
+            elif export_type == 'all_csv':
+                return self.export_csv(request, queryset)
+            elif export_type == 'all_pdf':
+                return self.export_pdf(request, queryset)
+            elif export_type == 'all_excel':
+                return self.export_excel(request, queryset)
+            else:
+                from django.contrib import messages
+                from django.shortcuts import redirect
+                messages.error(request, f"Type d'export '{export_type}' non reconnu.")
+                return redirect(request.path)
+        except Exception as e:
+            from django.contrib import messages
+            from django.shortcuts import redirect
+            messages.error(request, f"Erreur lors de l'export : {str(e)}")
+            return redirect(request.path)
+    
+    def export_csv(self, request, queryset):
+        """Export CSV pour les catégories"""
+        import csv
+        from django.http import HttpResponse
+        
+        response = HttpResponse(content_type='text/csv; charset=utf-8')
+        response['Content-Disposition'] = f'attachment; filename="categories_export.csv"'
+        
+        writer = csv.writer(response)
+        writer.writerow(['Nom', 'Nombre de véhicules'])
+        
+        for obj in queryset:
+            writer.writerow([
+                obj.nom,
+                safe_count(Vehicule, marque__categorie=obj) + safe_count(Moto, marque__categorie=obj)
+            ])
+        
+        return response
+    
+    def export_excel(self, request, queryset):
+        """Export Excel pour les catégories"""
+        from openpyxl import Workbook
+        from openpyxl.styles import Font, Alignment, PatternFill
+        from openpyxl.utils import get_column_letter
+        from io import BytesIO
+        from django.http import HttpResponse
+        
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "Catégories"
+        
+        headers = ['NOM', 'NOMBRE DE VÉHICULES']
+        ws.append(headers)
+        
+        # Style en-têtes
+        header_font = Font(bold=True, color="FFFFFF")
+        header_fill = PatternFill(start_color="366092", end_color="366092", fill_type="solid")
+        for col, header in enumerate(headers, 1):
+            cell = ws.cell(row=1, column=col)
+            cell.font = header_font
+            cell.fill = header_fill
+            cell.alignment = Alignment(horizontal='center', vertical='center')
+        
+        # Données
+        for row_idx, obj in enumerate(queryset, 2):
+            ws.cell(row=row_idx, column=1, value=obj.nom if obj.nom else '')
+            ws.cell(row=row_idx, column=2, value=safe_count(Vehicule, marque__categorie=obj) + safe_count(Moto, marque__categorie=obj))
+        
+        # Ajuster la largeur des colonnes
+        for col in range(1, len(headers)+1):
+            ws.column_dimensions[get_column_letter(col)].width = 20
+        
+        buffer = BytesIO()
+        wb.save(buffer)
+        buffer.seek(0)
+        response = HttpResponse(
+            buffer.getvalue(),
+            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        )
+        response['Content-Disposition'] = f'attachment; filename="categories_export.xlsx"'
+        return response
+    
+    def export_pdf(self, request, queryset):
+        """Export PDF pour les catégories"""
+        from reportlab.lib.pagesizes import A4, landscape
+        from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+        from reportlab.lib.units import inch
+        from reportlab.lib import colors
+        from io import BytesIO
+        from django.http import HttpResponse
+
+        buffer = BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=landscape(A4), 
+                              leftMargin=0.5*inch, rightMargin=0.5*inch, 
+                              topMargin=0.5*inch, bottomMargin=0.5*inch)
+        elements = []
+
+        styles = getSampleStyleSheet()
+        title_style = ParagraphStyle(
+            'CustomTitle',
+            parent=styles['Heading1'],
+            fontSize=16,
+            spaceAfter=20,
+            alignment=1
+        )
+        title = Paragraph("Liste des Catégories de Véhicules", title_style)
+        elements.append(title)
+        elements.append(Spacer(1, 20))
+
+        headers = ['Nom', 'Nombre de véhicules']
+        data = [headers]
+        for obj in queryset:
+            data.append([
+                obj.nom,
+                str(safe_count(Vehicule, marque__categorie=obj) + safe_count(Moto, marque__categorie=obj))
+            ])
+        
+        table = Table(data)
+        table_style = TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 12),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+            ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 1), (-1, -1), 10),
+        ])
+        table.setStyle(table_style)
+        elements.append(table)
+        
+        doc.build(elements)
+        buffer.seek(0)
+        response = HttpResponse(buffer.getvalue(), content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="categories_export.pdf"'
         return response
 
 # Personnalisation de l'interface d'administration

@@ -37,10 +37,10 @@ class MarqueModelTest(TestCase):
     def test_marque_creation(self):
         marque = Marque.objects.create(
             nom="Test Marque",
-            categorie="voiture"
+            categorie="vehicule"
         )
         self.assertEqual(marque.nom, "Test Marque")
-        self.assertEqual(str(marque), "Test Marque (voiture)")
+        self.assertEqual(str(marque), "Test Marque (vehicule)")
 
     def test_marque_validation(self):
         with self.assertRaises(ValidationError):
@@ -49,7 +49,7 @@ class MarqueModelTest(TestCase):
 
 class VehiculeModelTest(TestCase):
     def setUp(self):
-        self.marque = Marque.objects.create(nom="Test Marque", categorie="voiture")
+        self.marque = Marque.objects.create(nom="Test Marque", categorie="vehicule")
         self.type_vehicule = TypeVehicule.objects.create(nom="Test Type")
         self.client = Client.objects.create(nom="Test Client")
         self.proprietaire = Proprietaire.objects.create(nom="Test Propriétaire")
@@ -127,7 +127,7 @@ class MotoModelTest(TestCase):
 
 class AdminActionsTest(TestCase):
     def setUp(self):
-        self.marque = Marque.objects.create(nom="Test Marque", categorie="voiture")
+        self.marque = Marque.objects.create(nom="Test Marque", categorie="vehicule")
         self.type_vehicule = TypeVehicule.objects.create(nom="Test Type")
         self.client = Client.objects.create(nom="Test Client")
         self.proprietaire = Proprietaire.objects.create(nom="Test Propriétaire")

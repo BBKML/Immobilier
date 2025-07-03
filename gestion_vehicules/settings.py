@@ -145,9 +145,9 @@ JAZZMIN_SETTINGS = {
     "site_title": "Gestion Véhicules",
     "site_header": "🚗 Gestion Véhicules",
     "site_brand": "Gestion Véhicules",
-    "site_logo": "images/logo.png",  # Logo dans la navbar
+    "site_logo": "images/logo.png",  # Utiliser le logo PNG existant
     "site_logo_classes": "img-fluid",
-    "site_logo_height": "60px",
+    "site_logo_height": "50px",
     "login_logo": "images/logo.png",  # Logo sur la page de connexion
     "login_logo_classes": "img-fluid",
     "login_logo_height": "80px",
@@ -159,6 +159,9 @@ JAZZMIN_SETTINGS = {
     "show_sidebar": True,
     "navigation_expanded": True,
     
+    # Icône de la sidebar
+    "sidebar_icon": "fas fa-car-side",
+    
     # Icônes personnalisées
     "icons": {
         "auth": "fas fa-users-cog",
@@ -169,6 +172,7 @@ JAZZMIN_SETTINGS = {
         "vehicules.Client": "fas fa-users",
         "vehicules.Proprietaire": "fas fa-user-tie",
         "vehicules.Marque": "fas fa-industry",
+        "vehicules.CategorieVehicule": "fas fa-tags",
         "vehicules.TypeVehicule": "fas fa-cogs",
         "vehicules.TypeMoto": "fas fa-tools",
     },
@@ -180,6 +184,7 @@ JAZZMIN_SETTINGS = {
         "vehicules.Client",
         "vehicules.Proprietaire",
         "vehicules.Marque",
+        "vehicules.CategorieVehicule",
         "vehicules.TypeVehicule",
         "vehicules.TypeMoto",
         "auth",
